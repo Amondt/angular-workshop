@@ -1,0 +1,8 @@
+<h2 class="mt-3"></h2>
+
+<ul class="list-group">
+    <app-todo
+        *ngFor="let todo of todos"
+        [todo]="todo"
+    ></app-todo>
+</ul>

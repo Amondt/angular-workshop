@@ -1,0 +1,38 @@
+<li style="min-height: 85px;"
+    [ngClass]="{
+        'my-1': true,
+        'list-group-item': true,
+        'list-group-item-danger': getDiffOfDays() < 0,
+        'list-group-item-warning': (getDiffOfDays() >= 0 && getDiffOfDays() <= 2),
+        'list-group-item-success': getDiffOfDays() > 2
+    }"
+>
+    <small>
+        {{ todo.date | date: 'fullDate' }}
+    </small>
+
+    <h5 
+        [ngStyle]="todo.checked ? { 'text-decoration': 'line-through' } : ''"
+        class="check"
+        (click)="onCheckTodo()"
+    >{{ todo.content }}</h5>
+
+    <i
+        class="far fa-square check"
+        *ngIf="!todo.checked"
+        (click)="onCheckTodo()"
+    ></i>
+    <i 
+        class="far fa-check-square check"
+        *ngIf="todo.checked"
+        (click)="onCheckTodo()"
+    ></i>
+
+    <small
+        class="delete"
+        (click)="onDeleteTodo()"
+    >&#10007;</small>
+
+    <!-- <p *ngIf="todo.checked">This todo is checked</p>
+    <p *ngIf="!todo.checked">This todo is not checked</p> -->
+</li>
