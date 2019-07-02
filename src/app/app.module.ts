@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { TodoComponent } from './todos/todo/todo.component';
 import { TodoDetailsComponent } from './todos/todo-details/todo-details.component';
 import { TodoFormComponent } from './todos/todo-form/todo-form.component';
 import { HeaderComponent } from './header/header.component';
+
 import { TodoService } from './services/todo.service';
 
 @NgModule({
@@ -21,7 +23,8 @@ import { TodoService } from './services/todo.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

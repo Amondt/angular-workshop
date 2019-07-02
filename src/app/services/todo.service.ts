@@ -21,6 +21,12 @@ export class TodoService {
 
     emitSubject = () => this.todosSubject.next(this.todos)
 
+    addTodo = (todo: Todo) => {
+        console.log('todo added: ', todo)
+        this.todos.push(todo)
+        this.emitSubject()
+    }
+
     deleteTodo = (id) => {
         console.log('todo with id: ', id, ' deleted')
         this.todos = this.todos.filter(todo => todo.id !== id)
