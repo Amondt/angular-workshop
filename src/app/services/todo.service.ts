@@ -12,7 +12,7 @@ export class TodoService {
         new Todo('My first todo', new Date(2019, 5, 30)),
         new Todo('My second todo', new Date(2019, 6, 2)),
         new Todo('My third todo', new Date(2019, 6, 5)),
-        new Todo('My fourth todo', new Date(2019, 6, 7)),
+        new Todo('My fourth todo', new Date(2019, 6, 12)),
     ]
 
     constructor() {

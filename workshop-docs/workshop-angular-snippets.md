@@ -63,37 +63,29 @@ todos: Todo[] = [
 #### todo.component.html
 ```
 <li
-    [ngClass]="{
-        'my-1': true,
-        'list-group-item': true,
-        'list-group-item-danger': getDiffOfDays() < 0,
-        /* to be filled */
-    }"
+    /* to be filled */
 >
     <small>
         {{ /* to be filled */ }}
     </small>
 
     <h5 
-        [ngStyle]="/* to be filled */ ? { 'text-decoration': 'line-through' } : ''"
-        class="check"
-        (click)="onCheckTodo()"
-    >{{ todo.content }}</h5>
+						class="check"
+        /* to be filled */
+    >/* to be filled */</h5>
 
     <i
         class="far fa-square check"
-        *ngIf="!todo.checked"
-        (click)="onCheckTodo()"
+        /* to be filled */
     ></i>
     <i 
         class="far fa-check-square check"
-        *ngIf=/* to be filled */
         /* to be filled */
     ></i>
 
     <small
         class="delete"
-        (click)="onDeleteTodo()"
+        /* to be filled */
     >&#10007;</small>
 </li>
 ```
@@ -122,36 +114,6 @@ small {
 #### todo.component.ts
 ```
 getDiffOfDays = () => Math.ceil((this.todo.date.getTime() - Date.now()) / (1000 * 60 * 60 * 24))
-onDeleteTodo = () => console.log('delete: ', this.todo.id)
-onCheckTodo = () => console.log('check: ', this.todo.id)
-```
-
-#### todos.service.ts
-```
-todosSubject = new Subject<any[]>()
-emitSubject = () => this.todosSubject.next(this.todos)
-
-deleteTodo = (id: number) => {
-    this.todos = this.todos.filter(todo => todo.id !== id)
-    this.emitSubject()
-}
-
-checkTodo = (id: number) => {
-    this.todos.find(todo => todo.id === id ? todo.checked = !todo.checked : null)
-    this.emitSubject()
-}
-```
-
-#### todo-list.component.ts ( after service settup )
-```
-this.todosSubscription = this.todosService.todosSubject.subscribe((todos: Todo[]) => this.todos = todos)
-this.todosService.emitSubject()
-```
-
-#### todo.component.ts ( after service settup )
-```
-onDeleteTodo = () => this.todosService.deleteTodo(this.todo.id)
-onCheckTodo = () => this.todosService.checkTodo(this.todo.id)
 ```
 
 #### app-routing.module.ts
@@ -177,14 +139,6 @@ onCheckTodo = () => this.todosService.checkTodo(this.todo.id)
         </li>
     </ul>
 </nav>
-```
-
-#### todos.service.ts ( after form component generated )
-```
-addTodo = (todo:Todo) => {
-    this.todos.push(todo)
-    this.emitSubject()
-}
 ```
 
 #### todo-form.component.html
@@ -216,22 +170,4 @@ addTodo = (todo:Todo) => {
         type="submit">Save
     </button>
 </form>
-```
-
-#### todo-form.component.ts
-```
-ngOnInit() {
-    this.todoForm = this.formBuilder.group({
-        content: ['', Validators.required],
-        date: ['', Validators.required]
-    })
-}
-
-onSubmit = () => {
-    this.todosService.addTodo(new Todo(
-        this.todoForm.get('content').value,
-        new Date(this.todoForm.get('date').value)
-    ))
-    this.router.navigate(['todos'])
-}
 ```
