@@ -3,6 +3,17 @@ Note 2019-07-02T14.29.39
 
 ## Angular workshop snipets
 
+
+#### index.html
+```
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+```
+
+#### angular.json
+```
+"node_modules/bootstrap/dist/css/bootstrap.min.css"
+```
+
 #### app.component.html
 ```
 /* to be filled */
@@ -41,8 +52,8 @@ export class Todo {
 todos: Todo[] = [
     new Todo('My first todo', new Date(2019, 5, 30)),
     new Todo('My second todo', new Date(2019, 6, 2)),
-    new Todo('My third todo', new Date(2019, 6, 5)),
-    new Todo('My fourth todo', new Date(2019, 6, 7)),
+    new Todo('My third todo', new Date(2019, 6, 11)),
+    new Todo('My fourth todo', new Date(2019, 6, 24)),
 ]
 ```
 
@@ -55,37 +66,31 @@ todos: Todo[] = [
 </ul>
 ```
 
-#### index.html
-```
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-```
-
 #### todo.component.html
 ```
 <li
-    /* to be filled */
 >
     <small>
-        {{ /* to be filled */ }}
+        
     </small>
 
     <h5 
 						class="check"
-        /* to be filled */
-    >/* to be filled */</h5>
+        
+    >/</h5>
 
     <i
         class="far fa-square check"
-        /* to be filled */
+        
     ></i>
     <i 
         class="far fa-check-square check"
-        /* to be filled */
+        
     ></i>
 
     <small
         class="delete"
-        /* to be filled */
+        
     >&#10007;</small>
 </li>
 ```
